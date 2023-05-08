@@ -1,147 +1,184 @@
-import { useFormik } from "formik";
-import React from "react";
-import Swal from "sweetalert2";
+import React, { useState } from 'react'
+import {
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBCheckbox,
+  MDBBtn,
 
+
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  
+  MDBIcon,
+  MDBTextArea,
+
+}
+  from 'mdb-react-ui-kit';
+import { useFormik } from 'formik';
+import Swal from 'sweetalert2';
+import app_config from '../../config';
+import { toast}  from 'react-hot-toast';
+
+// import MDBFileupload from 'mdb-react-fileupload';
 const AddEquipment = () => {
 
-    const signupForm = useFormik({
-        initialValues: {
-            name : '',
-            email : '',
-            password : '',
-            cPassword : ''
-        },
-        onSubmit: async (values) => { 
-          console.log(values);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('seller')));
 
-          // making a request to the backend
-          // 1. url
-          // 2. request method
-          // 3. data
-          // 4. data format
-
-          const res = await fetch('http://localhost:5000/user/add', {
-            method: 'POST',
-            body : JSON.stringify(values),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
-
-          console.log(res.status);
-
-          if(res.status === 200){
-            Swal.fire({
-              title : 'Well Done',
-              icon : "success",
-              text : "You have successfully registered"
-            })
-          }
+    const [selImage, setSelImage] = useState('');
+  
+    const {apiUrl} = app_config;
+  
+    const uploadImage = async (e) => {
+      const file = e.target.files[0];
+      setSelImage(file);
+      const fd = new FormData();
+      fd.append("myfile", file);
+      fetch(apiUrl + "/util/uploadfile", {
+        method: "POST",
+        body: fd,
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log("file uploaded");
+          toast.success("File Uploaded!!");
         }
-    });
-
+      });
+    }
+  const addequipmentForm = useFormik({
+    initialValues: {
+      title : '',
+      description : '',
+      price : '',
+      seller : currentUser._id,
+      category : '',
+      image : '',
+      createdAt: new Date()
+    },
+    onSubmit: async (values, {setSubmitting}) => { 
+      // setSubmitting(true);
+      values.image = selImage.name;
+      console.log(values);
+  
+      const res = await fetch('http://localhost:5000/equipment/add',{
+        method: 'POST',
+        body : JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      console.log(res.status);
+  
+      if(res.status === 200){
+  
+        Swal.fire({
+          icon : 'success',
+          title : 'Nice',
+          text : 'You have successfully registered'
+        })
+      } else {
+        Swal.fire({
+          icon : 'error',
+          title : 'opps!!',
+          text : 'something went worng'
+        })
+      }
+      
+    },
+  
+   });
+ 
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#2779e2" }}>
-      <div className="container h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-9">
-            <h1 className="text-white mb-4">New Registration</h1>
-            <div className="card" style={{ borderRadius: 15 }}>
-              <div className="card-body">
-                <form onSubmit={signupForm.handleSubmit}>
-                <div className="row align-items-center pt-4 pb-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Full name</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="text"
-                      className="form-control form-control-lg"
-                      id="name"
-                      value={signupForm.values.name}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Email address</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="email"
-                      className="form-control form-control-lg"
-                      placeholder="example@example.com"
-                      id="email"
-                      value={signupForm.values.email}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Password</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="password"
-                      className="form-control form-control-lg"
-                      placeholder="password"
-                      id="password"
-                      value={signupForm.values.password}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Confirm Password</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      type="password"
-                      className="form-control form-control-lg"
-                      placeholder="confirm password"
-                      id="cPassword"
-                      value={signupForm.values.cPassword}
-                      onChange={signupForm.handleChange}
-                    />
-                  </div>
-                </div>
-                
-                <hr className="mx-n3" />
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Upload CV</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      className="form-control form-control-lg"
-                      id="formFileLg"
-                      type="file"
-                    />
-                    <div className="small text-muted mt-2">
-                      Upload your CV/Resume or any other relevant file. Max file
-                      size 50 MB
-                    </div>
-                  </div>
-                </div>
-                <hr className="mx-n3" />
-                <div className="px-5 py-4">
-                  <button type="submit" className="btn btn-primary btn-lg">
-                    Send application
-                  </button>
-                </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+    <MDBContainer className="my-5" >
+      {/* <h2>Add New Equipment</h2> */}
+      <MDBCard >
+        <MDBRow className='g-0' >
 
-export default Signup;
+          <MDBCol md='6'>
+            <div>
+              {/* <h1>Upload and Display Image usign React Hook's</h1> */}
+
+              {selectedImage && (
+                <div>
+                  <img
+                    alt="not found"
+                    width={"500px"}
+                    src={URL.createObjectURL(selectedImage)}
+                  />
+                  <br />
+                  <button onClick={() => setSelectedImage(null)}>Remove</button>
+                </div>
+              )}
+
+              <br />
+              <br />
+
+                <label htmlFor='upload-image' className="btn btn-primary" style={{margin:20}}>Upload Image</label>
+              <input
+              hidden
+              id="upload-image"
+                type="file"
+                onChange={uploadImage}
+              />
+            </div>
+          </MDBCol>
+
+          <MDBCol md='6'>
+            <MDBCardBody className='d-flex flex-column'>
+
+              <form onSubmit={addequipmentForm.handleSubmit}>
+
+
+                <MDBInput wrapperClass='mb-4' id='title' type='title' label='Title' value={addequipmentForm.values.title} onChange={addequipmentForm.handleChange} className="form-control form-control-lg" />
+              
+                <MDBInput wrapperClass='mb-4'  id='description' type='Description' label='Description' value={addequipmentForm.values.description}
+              onChange={addequipmentForm.handleChange} 
+              />
+                
+                <MDBInput wrapperClass='mb-4' type='price' id='price' label='price'  value={addequipmentForm.values.price}
+              onChange={addequipmentForm.handleChange}
+               />
+                {/* <MDBInput wrapperClass='mb-4' type='image' id='image' label='image' value={addequipmentForm.values.image}
+              onChange={addequipmentForm.handleChange}
+              className="form-control form-control-lg" /> */}
+
+                <MDBInput wrapperClass='mb-4' id='category'type='Category' label='Category' value={addequipmentForm.values.category}
+              onChange={addequipmentForm.handleChange}
+               />
+
+                {/* <MDBCheckbox
+      wrapperClass='d-flex justify-content-center mb-4'
+      id='form6Example8'
+      label='Create an account?'
+      defaultChecked
+    /> */}
+                <button className='btn btn-primary' style={{margin:10}}>
+                  Save
+                </button>
+                <button className='btn btn-primary' style={{margin:10}}>
+                  Save & Add Another
+                </button>
+                <button className='btn btn-primary' style={{margin:10}}>
+                  Cancel
+                </button>
+
+              </form>
+
+
+            </MDBCardBody>
+          </MDBCol>
+
+        </MDBRow>
+      </MDBCard>
+
+    </MDBContainer>
+
+  )
+}
+
+export default AddEquipment;
+
