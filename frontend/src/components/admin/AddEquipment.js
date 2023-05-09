@@ -26,7 +26,7 @@ import { toast}  from 'react-hot-toast';
 const AddEquipment = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('seller')));
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('admin')));
 
     const [selImage, setSelImage] = useState('');
   

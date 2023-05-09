@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from '../main/NavBar'
+import { Outlet } from 'react-router-dom'
 
 const Admin = () => {
   return (

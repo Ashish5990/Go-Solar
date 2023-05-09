@@ -3,6 +3,9 @@ const app = express();
 const port = 5000;
 
 const userRouter = require('./routers/userRouter');
+const bookingRouter = require('./routers/bookingRouter');
+const expertRouter = require('./routers/expertRouter');
+const equipmentRouter = require('./routers/equipmentRouter');
 const cors = require('cors');
 
 app.use(cors({
@@ -13,6 +16,9 @@ app.use(cors({
 app.use(express.json());
 
 app.use('/user', userRouter);
+app.use('/booking', bookingRouter);
+app.use('/expert', expertRouter);
+app.use('/equipment', equipmentRouter);
 
 // routes
 app.get('/', (req, res) => {
