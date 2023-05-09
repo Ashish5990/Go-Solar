@@ -6,6 +6,8 @@ import Main from './components/main';
 
 import Signup from './components/main/Signup';
 import Login from './components/main/Login';
+import Admin from './components/admin';
+import AddEquipment from './components/admin/AddEquipment';
 
 function App() {
   return <BrowserRouter>
@@ -15,6 +17,9 @@ function App() {
         <Route element={<Home />} path='home' />
         <Route element={<Login />} path='login' />
         <Route element={<Signup />} path='signup' />
+      </Route>
+      <Route path='admin' element={<Admin />}>
+        <Route element={<AddEquipment />} path='addequipment' />
       </Route>
     </Routes>
 
