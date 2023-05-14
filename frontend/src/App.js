@@ -11,25 +11,31 @@ import AddEquipment from './components/admin/AddEquipment';
 import ManageEquipment from './components/admin/ManageEquipment';
 import Cart from './components/user/Cart';
 import User from './components/user';
+import ListEquipment from './components/main/ListEquipments';
+import { ProductProvider } from './context/ProductContext';
+import Detail from './components/main/EquipmentDetails';
 
 function App() {
   return <BrowserRouter>
-    <Routes>
-      <Route element={<Navigate to="/main/home" />} path='/' />
-      <Route path='main' element={<Main />}>
-        <Route element={<Home />} path='home' />
-        <Route element={<Login />} path='login' />
-        <Route element={<Signup />} path='signup' />
-      </Route>
-      <Route path='user' element={<User />}>
-        <Route element={<Cart />} path='cart' />
-      </Route>
-      <Route path='admin' element={<Admin />}>
-        <Route element={<AddEquipment />} path='addequipment' />
-        <Route element={<ManageEquipment />} path='manageequipment' />
-      </Route>
-    </Routes>
-
+    <ProductProvider >
+      <Routes>
+        <Route element={<Navigate to="/main/home" />} path='/' />
+        <Route path='main' element={<Main />}>
+          <Route element={<Home />} path='home' />
+          <Route element={<Login />} path='login' />
+          <Route element={<Signup />} path='signup' />
+          <Route element={<Detail />} path='details/:id' />
+          <Route element={<ListEquipment />} path='browse' />
+        </Route>
+        <Route path='user' element={<User />}>
+          <Route element={<Cart />} path='cart' />
+        </Route>
+        <Route path='admin' element={<Admin />}>
+          <Route element={<AddEquipment />} path='addequipment' />
+          <Route element={<ManageEquipment />} path='manageequipment' />
+        </Route>
+      </Routes>
+    </ProductProvider>
   </BrowserRouter>
 }
 
