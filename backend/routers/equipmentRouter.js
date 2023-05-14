@@ -49,13 +49,13 @@ router.delete('/delete/:id', (req, res) => {
         });
 });
 
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', (req, res) => {   
     Model.findByIdAndUpdate(req.params.id, req.body)
         .then((result) => {
             res.json(result);
         }).catch((err) => {
             console.error(err);
-            res.status(500).json(err);
+            res.status(500).json(err); 
         });
 })
 router.get('/getbyid/:id', (req, res) => {
