@@ -20,6 +20,8 @@ app.use('/booking', bookingRouter);
 app.use('/expert', expertRouter);
 app.use('/equipment', equipmentRouter);
 
+app.use(express.static('./static/uploads'));
+
 // routes
 app.get('/', (req, res) => {
     res.send('Working Perfectly');
