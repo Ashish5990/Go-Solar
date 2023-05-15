@@ -43,15 +43,7 @@ const ListEquipment = () => {
                         equipmentList.map((equipment) => (
                             <MDBCol md="12" lg="4" className="mb-4 mb-lg-5">
                                 <MDBCard style={{height:"550px",backgroundColor:"#F4F4F4"}}>
-                                    <div className="d-flex justify-content-between p-3">
-                                        {/* <p className="lead mb-0">Today's Combo Offer</p> */}
-                                        <div
-                                            className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                            style={{ width: "35px", height: "35px" }}
-                                        >
-                                            {/* <p className="text-white mb-0 small">x4</p> */}
-                                        </div>
-                                    </div>
+                                   
                                     <MDBCardImage className='img-fluid rounded'
                                         src={apiUrl+"/" + equipment.image}
                                         position="top"

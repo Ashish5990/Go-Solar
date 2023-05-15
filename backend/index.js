@@ -6,6 +6,7 @@ const userRouter = require('./routers/userRouter');
 const bookingRouter = require('./routers/bookingRouter');
 const expertRouter = require('./routers/expertRouter');
 const equipmentRouter = require('./routers/equipmentRouter');
+const utilRouter = require('./routers/util');
 const cors = require('cors');
 
 app.use(cors({
@@ -19,6 +20,7 @@ app.use('/user', userRouter);
 app.use('/booking', bookingRouter);
 app.use('/expert', expertRouter);
 app.use('/equipment', equipmentRouter);
+app.use('/util', utilRouter);
 
 app.use(express.static('./static/uploads'));
 

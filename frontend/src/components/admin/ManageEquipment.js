@@ -18,6 +18,7 @@ import {
 } from "mdb-react-ui-kit";
 import AddEquipment from "./AddEquipment";
 import app_config from "../../config";
+import { toast } from "react-hot-toast";
 
 export default function ManageEquipment() {
   const [basicModal, setBasicModal] = useState(false);
@@ -51,6 +52,15 @@ export default function ManageEquipment() {
     setUserList(masterList.filter((equipment) => {
       return equipment.title.toLowerCase().includes(inputText.toLowerCase());
     }));
+  }
+
+  const deleteEquipment = async (id) => {
+    const res = await fetch(apiUrl+'/equipment/delete/'+id, {method: 'DELETE'});
+
+    if(res.status === 200){
+      toast.success('Equipment Deleted');
+      fetchUserData();
+    }
   }
 
   return (
@@ -141,9 +151,14 @@ export default function ManageEquipment() {
                       {new Date(equip.createdAt).toLocaleDateString()}
                     </td>
                     <td>
-                      <MDBBtn color='link' rounded size='sm'>
+                      <button className="btn btn-link">
                         Edit
-                      </MDBBtn>
+                      </button>
+                    </td>
+                    <td>
+                      <button className="btn btn-danger" onClick={e => deleteEquipment(equip._id)}>
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))}
