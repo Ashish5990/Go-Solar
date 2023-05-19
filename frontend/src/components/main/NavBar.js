@@ -1,7 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import useProductContext from "../../context/ProductContext";
 
 const Navbar = () => {
+
+  const { 
+    getCartItemsCount } = useProductContext();
+
   return (
     <>
       {/* Navbar */}
@@ -61,45 +66,13 @@ const Navbar = () => {
           {/* Right elements */}
           <div className="d-flex align-items-center">
             {/* Icon */}
-            <a className="text-reset me-3" href="#">
+            <NavLink className="text-reset me-3" to="/user/cart">
               <i className="fas fa-shopping-cart" />
-            </a>
-            {/* Notifications */}
-            <div className="dropdown">
-              <a
-                className="text-reset me-3 dropdown-toggle hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="fas fa-bell" />
-                <span className="badge rounded-pill badge-notification bg-danger">
-                  1
+              <span className="badge rounded-pill badge-notification bg-danger">
+                  {getCartItemsCount()}
                 </span>
-              </a>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Some news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another news
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </div>
+            </NavLink>
+            
             {/* Avatar */}
             <div className="dropdown">
               <a
