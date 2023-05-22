@@ -10,4 +10,4 @@ const myschema = new Schema({
     createdAt: Date,
 });
 
-module.exports = model('equipment',myschema);
+module.exports = model('equipment', myschema);
