@@ -10,7 +10,7 @@ const utilRouter = require("./routers/util");
 const cors = require("cors");
 
 const stripe = require("stripe")(
-  "sk_test_51N5i2kSE8ALNlcfUeImWOPJjucvuwXy38yixqmADR9BCflGnwkfVUDy2T58YI8FxXSbADNBNK5bkBI4ZSlxSyRNU00guAF4MyK"
+  "sk_test_51NAWp1SCPacst9JciaoWD36Y0WYPGGJIdw6FJ66TIMjb34TdqmWEx2yqRL5dEJQ3y4CDlGloD8tWuwil1JKlc66L00hobIvQ3h"
 );
 
 const { createServer } = require("http");
