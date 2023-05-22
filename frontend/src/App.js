@@ -9,11 +9,11 @@ import Login from './components/main/Login';
 import Admin from './components/admin';
 import AddEquipment from './components/admin/AddEquipment';
 import ManageEquipment from './components/admin/ManageEquipment';
-import Cart from './components/user/Cart';
 import User from './components/user';
 import ListEquipment from './components/main/ListEquipments';
 import { ProductProvider } from './context/ProductContext';
 import Detail from './components/main/EquipmentDetails';
+import ShoppingCart from './components/user/ShoppingCart';
 
 function App() {
   return <BrowserRouter>
@@ -28,7 +28,7 @@ function App() {
           <Route element={<ListEquipment />} path='browse' />
         </Route>
         <Route path='user' element={<User />}>
-          <Route element={<Cart />} path='cart' />
+          <Route element={<ShoppingCart />} path='cart' />
         </Route>
         <Route path='admin' element={<Admin />}>
           <Route element={<AddEquipment />} path='addequipment' />
