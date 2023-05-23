@@ -1,8 +1,11 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Signup = () => {
+
+  const navigate = useNavigate();
 
     const signupForm = useFormik({
         initialValues: {
@@ -29,6 +32,7 @@ const Signup = () => {
           });
 
           console.log(res.status);
+          navigate('/main/login');
 
           if(res.status === 200){
             Swal.fire({
@@ -42,11 +46,11 @@ const Signup = () => {
 
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#2779e2" }}>
+    <section className="vh-100" style={{ backgroundColor: "#ffdc71" }}>
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-xl-9">
-            <h1 className="text-white mb-4">New Registration</h1>
+            <h1 className=" mb-4">User Registration</h1>
             <div className="card" style={{ borderRadius: 15 }}>
               <div className="card-body">
                 <form onSubmit={signupForm.handleSubmit}>
@@ -110,28 +114,10 @@ const Signup = () => {
                     />
                   </div>
                 </div>
-                
-                <hr className="mx-n3" />
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Upload CV</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      className="form-control form-control-lg"
-                      id="formFileLg"
-                      type="file"
-                    />
-                    <div className="small text-muted mt-2">
-                      Upload your CV/Resume or any other relevant file. Max file
-                      size 50 MB
-                    </div>
-                  </div>
-                </div>
                 <hr className="mx-n3" />
                 <div className="px-5 py-4">
                   <button type="submit" className="btn btn-primary btn-lg">
-                    Send application
+                    Register
                   </button>
                 </div>
                 </form>

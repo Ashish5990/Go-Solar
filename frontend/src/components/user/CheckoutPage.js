@@ -6,7 +6,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 
-export default function CheckoutPage() {
+export default function CheckoutPage({amount}) {
   const stripe = useStripe();
   const elements = useElements();
 

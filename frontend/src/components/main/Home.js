@@ -18,7 +18,7 @@ const Home = () => {
           className="px-4 py-5 px-md-5 text-center bg-image"
           style={{
             backgroundImage:
-              'url("/hero.jpg")',
+              'url("https://waareeimages.s3.ap-south-1.amazonaws.com/solar_power_energy_6b25c88f02.jpg")',
             height: 500,
             backgroundSize: "cover",
             backgroundPosition: "50% 50%",

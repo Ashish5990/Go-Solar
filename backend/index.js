@@ -9,6 +9,14 @@ const equipmentRouter = require("./routers/equipmentRouter");
 const utilRouter = require("./routers/util");
 const cors = require("cors");
 
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+  })
+);
+
+app.use(express.json());
+
 const stripe = require("stripe")(
   "sk_test_51NAWp1SCPacst9JciaoWD36Y0WYPGGJIdw6FJ66TIMjb34TdqmWEx2yqRL5dEJQ3y4CDlGloD8tWuwil1JKlc66L00hobIvQ3h"
 );
@@ -51,12 +59,14 @@ io.on("connection", (socket) => {
   });
 });
 
+
+
 app.post("/create-payment-intent", async (req, res) => {
-  const { items } = req.body;
+  const { amount } = req.body;
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 10000,
+    amount: amount * 100,
     currency: "inr",
     automatic_payment_methods: {
       enabled: true,
@@ -68,13 +78,7 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-  })
-);
 
-app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/booking", bookingRouter);
