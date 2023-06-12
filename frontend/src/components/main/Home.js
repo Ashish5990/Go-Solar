@@ -88,7 +88,7 @@ const Home = () => {
         <div className="row gx-lg-5 mb-5 align-items-center">
           <div className="col-md-6 mb-4 mb-md-0">
             <img
-              src="https://mdbootstrap.com/img/new/standard/city/028.jpg"
+              src="https://www.brijencapsulants.com/wp-content/uploads/2020/12/solar-panel-components-1280x960.jpg"
               className="w-100 shadow-4-strong rounded-4 mb-4"
               alt=""
               aria-controls="#picker-editor"
@@ -135,7 +135,7 @@ Many well known solar panel manufacturers are ‘vertically integrated’ which 
         <div className="row gx-lg-5 mb-5 flex-lg-row-reverse align-items-center">
           <div className="col-md-6 mb-4 mb-md-0">
             <img
-              src="https://mdbootstrap.com/img/new/standard/city/033.jpg"
+              src="https://in.mitsuichemicals.com/sites/default/files/media/image/image5_1.jpg"
               className="w-100 shadow-4-strong rounded-4 mb-4"
               alt=""
               aria-controls="#picker-editor"
@@ -176,7 +176,7 @@ Polycrystalline silicon cells - Lower efficiency and lowest cost
         <div className="row gx-lg-5 mb-5 align-items-center">
           <div className="col-md-6 mb-4 mb-md-0">
             <img
-              src="https://mdbootstrap.com/img/new/standard/city/079.jpg"
+              src="https://www.solarchoice.net.au/wp-content/uploads/025_infographic.png"
               className="w-100 shadow-4-strong rounded-4 mb-4"
               alt=""
               aria-controls="#picker-editor"
