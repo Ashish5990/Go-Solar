@@ -95,7 +95,7 @@ const Home = () => {
             />
           </div>
           <div className="col-md-6 mb-4 mb-md-0">
-            <h3 className="fw-bold">Art</h3>
+            <h3 className="fw-bold">Six Main Components Of A Solar Panel</h3>
             <div className="mb-2 text-danger small">
               <i
                 className="fas fa-money-bill me-2"
@@ -104,15 +104,23 @@ const Home = () => {
               <span>Business</span>
             </div>
             <p className="text-muted">
-              Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat
-              vulputate. Ut vulputate est non quam dignissim elementum. Donec a
-              ullamcorper diam.
+            Six Main Components Of A Solar Panel
+Solar photovoltaic cells 
+
+Toughened Glass - 3 to 3.5mm thick
+
+Extruded Aluminium frame
+
+Encapsulation - EVA film layers
+
+Polymer rear back-sheet
+
+Junction box - diodes and connectors
+
+Many well known solar panel manufacturers are ‘vertically integrated’ which means the one company supplies and manufactures all the main components including the silicon ingots and wafers used to make the solar PV cells. However many panel manufacturers assemble solar panels using externally sourced parts including cells, polymer back sheet and encapsulation EVA material. These manufacturers can be more selective about which components they chose but they do not always have control over the quality of the products so they should be sure they use the best suppliers available.
             </p>
             <p className="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quae
-              nulla saepe rerum aspernatur odio amet perferendis tempora
-              mollitia? Ratione unde magni omnis quaerat blanditiis cumque
-              dolore placeat rem dignissimos?
+              
             </p>
             <a
               className="btn btn-primary"
@@ -134,26 +142,26 @@ const Home = () => {
             />
           </div>
           <div className="col-md-6 mb-4 mb-md-0">
-            <h3 className="fw-bold">Exhibition in Paris</h3>
+            <h3 className="fw-bold">How Are Solar Cells Made?</h3>
             <div className="mb-2 text-primary small">
               <i
                 className="fas fa-money-bill me-2"
                 aria-controls="#picker-editor"
               />
-              <span>Art</span>
+              <span></span>
             </div>
             <p className="text-muted">
-              Duis sagittis, turpis in ullamcorper venenatis, ligula nibh porta
-              dui, sit amet rutrum enim massa in ante. Curabitur in justo at
-              lorem laoreet ultricies. Nunc ligula felis, sagittis eget nisi
-              vitae, sodales vestibulum purus. Vestibulum nibh ipsum, rhoncus
-              vel sagittis nec, placerat vel justo. Duis faucibus sapien eget
-              tortor finibus, a eleifend lectus dictum. Cras tempor convallis
-              magna id rhoncus. Suspendisse potenti. Nam mattis faucibus
-              imperdiet. Proin tempor lorem at neque tempus aliquet. Phasellus
-              at ex volutpat, varius arcu id, aliquam lectus. Vestibulum mattis
-              felis quis ex pharetra luctus. Etiam luctus sagittis massa, sed
-              iaculis est vehicula ut.
+            
+Solar panels use photovoltaic cells, or PV cells, which are made using silicon crystalline wafers similar to the wafers used to make computer processors. The silicon wafers can be either polycrystalline or monocrystalline and are produced using several different manufacturing methods. The most efficient type is monocrystalline (mono) which are manufactured using the well known Czochralski process. This process is more energy-intensive compared to polycrystalline (poly) and therefore more expensive to produce.
+
+Polycrystalline wafers, on the other hand, are slightly less efficient and are made using several purification processes followed by a simpler, lower cost, casting method. More recently, cast monocrystalline or cast mono cells have been gaining popularity. The reason is due to the lower-cost casting process used to make cast mono cells which is similar to the process used for polycrystalline silicon cells. However, cast-mono wafers are not quite as efficient and pure mono wafers made using the Czochralski process.
+
+Monocrystalline silicon cells - Highest efficiency and highest cost
+
+Cast monocrystalline cells - High efficiency and lower cost
+
+Polycrystalline silicon cells - Lower efficiency and lowest cost
+
             </p>
             <a
               className="btn btn-primary"
@@ -175,7 +183,7 @@ const Home = () => {
             />
           </div>
           <div className="col-md-6 mb-4 mb-md-0">
-            <h3 className="fw-bold">Stock market boom</h3>
+            <h3 className="fw-bold">Monocrystalline sun oriented cell</h3>
             <div className="mb-2 text-warning small">
               <i
                 className="fas fa-money-bill me-2"
@@ -184,20 +192,8 @@ const Home = () => {
               <span>Business</span>
             </div>
             <p className="text-muted">
-              Sed sollicitudin purus sed nulla dignissim ullamcorper. Aenean
-              tincidunt vulputate libero, nec imperdiet sapien pulvinar id.
-              Nullam scelerisque odio vel lacus faucibus, tincidunt feugiat
-              augue ornare. Proin ac dui vel lectus eleifend vestibulum et
-              lobortis risus. Nullam in commodo sapien. Curabitur ut erat congue
-              sem finibus eleifend egestas eu metus. Sed ut dolor id magna
-              rutrum ultrices ut eget libero. Duis vel porttitor odio. Ut
-              pulvinar sed turpis ornare tincidunt. Donec luctus, mi euismod
-              dignissim malesuada, lacus lorem commodo leo, tristique blandit
-              ante mi id metus. Integer et vehicula leo, vitae interdum lectus.
-              Praesent nulla purus, commodo at euismod nec, blandit ultrices
-              erat. Aliquam eros ipsum, interdum et mattis vitae, faucibus vitae
-              justo. Nulla condimentum hendrerit leo, in feugiat ipsum
-              condimentum ac. Maecenas sed blandit dolor.
+            A commonplace Monocrystalline sun oriented cell with 5 busbars
+Sun based photovoltaic cells or PV cells convert daylight straightforwardly into DC electrical energy. The exhibition of the sunlight based not set in stone by the cell type and attributes of the silicon utilized, with the two fundamental sorts being monocrystalline and polycrystalline silicon. The foundation of the PV cell is an extremely slim wafer, commonly 0.1mm thick, and is produced using either a positive p-type silicon or negative n-type silicon. There are a wide range of cell sizes and designs accessible which offer various degrees of proficiency and execution including half-cut or split cells, multi-busbar (MBB) cells, and all the more as of late shingled cells utilizing meager covering wafer strips. For more definite data on the various cells and sunlight based chargers types, see the total sun powered PV cell innovation audit
             </p>
             <a
               className="btn btn-primary"
